@@ -61,8 +61,11 @@ The Wheat Disease Classifier is a web application that uses a deep learning mode
 
 ## Model Test Results
 - Overall Accuracy: 98.96% on the test set
-![Training Loss and Accuracy at each Epoch](http://url/to/img.png)
-![Confusion Matrix](http://url/to/img.png)
+
+![train_loss_acc](https://github.com/user-attachments/assets/c1d48af7-63b1-43e8-8549-980fbc9cadb2)
+
+![conf_matrix](https://github.com/user-attachments/assets/f78355e3-f5eb-40d8-9f68-0b315d96148e)
+
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/obaidhsn/wheat_leaf_disease_detection/blob/main/LICENSE) file for details.
