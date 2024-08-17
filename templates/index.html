@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheat Disease Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Wheat Disease Classifier</h1>
+    <div class="upload-form">
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" name="file" id="fileInput" accept="image/*" required>
+            <button type="button" onclick="uploadFile()">Upload and Predict</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert('Please select an image file first.');
+                return;
+            }
+
+            if (file.size > 5 * 1024 * 1024) { // 5MB size limit
+                alert('File size exceeds 5MB limit.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultDiv = document.getElementById('result');
+                if (data.error) {
+                    resultDiv.innerHTML = `<p style="color:red;">${data.error}</p>`;
+                } else {
+                    const imgUrl = `/uploads/${data.image}`;
+                    resultDiv.innerHTML = `
+                        <p><strong>Class:</strong> ${data.class}</p>
+                        <p><strong>Probability:</strong> ${data.probability.toFixed(2)}%</p>
+                        <img src="${imgUrl}" alt="Uploaded Image" style="max-width: 100%; height: auto;">
+                    `;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while uploading the file.');
+            });
+        }
+    </script>
+</body>
+</html>
