@@ -45,9 +45,9 @@ def predict():
         if mime_type not in ['image/jpeg', 'image/png']:
             return jsonify({'error': 'Invalid file type'})
         
-        class_name, probability = predictor.predict(img_path=file_path)
+        class_name, probability = predictor.predict(file_path)
         if class_name:
-            return jsonify({'class': class_name, 'probability': probability * 100, 'image': file_path})
+            return jsonify({'class': class_name, 'probability': f'{probability * 100:.2f}%', 'image': file_path})
         else:
             return jsonify({'error': 'Unable to classify image'})
     else:
