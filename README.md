@@ -43,7 +43,7 @@ The Wheat Disease Classifier is a web application that uses a deep learning mode
 
 1. **Start the Flask Server**:
     ```sh
-    python3 app.py
+    python3 main.py
     ```
 2. **Access the Web Interface**:
 - Open your web browser and navigate to http://127.0.0.1:5000/.
