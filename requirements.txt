@@ -1,6 +1,8 @@
 streamlit
-pillow
+Pillow
 tensorflow
 opencv-python
 numpy
 pandas
+werkzeug
+flask
