@@ -31,6 +31,9 @@ def save_uploaded_file(uploaded_file):
 # Streamlit app
 st.title('Wheat Disease Classifier')
 
+# Add a link to the GitHub repo
+st.markdown("[View on GitHub](https://github.com/yourusername/yourrepo)")
+
 uploaded_file = st.file_uploader("Choose an image...", type=ALLOWED_EXTENSIONS)
 
 if uploaded_file is not None:
