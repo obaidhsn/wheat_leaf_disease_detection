@@ -1,7 +1,6 @@
 streamlit
 Pillow
 tensorflow
-opencv-python
 numpy
 pandas
 werkzeug
