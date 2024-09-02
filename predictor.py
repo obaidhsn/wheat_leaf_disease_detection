@@ -2,10 +2,6 @@ import numpy as np
 import pandas as pd
 import cv2
 from tensorflow.keras.models import load_model
-import os
-
-# Set the environment variable
-os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
 
 class WheatDiseasePredictor:
     def __init__(self, csv_path, model_path):
