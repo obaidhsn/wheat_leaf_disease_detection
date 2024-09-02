@@ -3,6 +3,7 @@ import pandas as pd
 import cv2
 from tensorflow.keras.models import load_model
 
+
 class WheatDiseasePredictor:
     def __init__(self, csv_path, model_path):
         self.csv_path = csv_path
